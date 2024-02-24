@@ -1,2 +1,16 @@
-let a = 3;
-console.log(a);
+interface add{
+    addItems():void
+}
+
+interface rem{
+    remItems():void
+}
+
+class TodoList implements add, rem{
+    addItems(){
+        
+    }
+    remItems(){
+        
+    }
+}
