@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo List</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ToDoList</title>
     <link rel="stylesheet" href="todo.css">
-</head>
-<body>
-    <div class = "form"></div>
-    <form id="myForm">
-        <div class="input-box">
-            <input type="hidden" id="input-box" placeholder="Add an activity">
-        </div>
+  </head>
+  <body>
+    <header>
+      <h1><span id="span"></span></h1>
+    </header>
 
-        <button id="button" type="submit" class="btn">Add</button>
-        <button id="btn" class="btn">Remove</button>
-    </form>
-</body>
+    <section class="container">
+      <form id="my-form">
+        <h1>Add a task:</h1>
+        <div class="msg"></div>
+        <div>
+          <label for="date">Enter the date:</label>
+          <input type="text" id="date">
+        </div>
+        <div>
+            <label for="task">Enter your task:</label>
+            <input type="text" id="task">
+        </div>
+        <input class="btn" type="submit" value="Submit">
+      </form>
+
+      <ul id="list"></ul>
+
+    </section>
+    
+
+    <script src="todo.js"></script>
+  </body>
 </html>
