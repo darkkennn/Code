@@ -1,4 +1,5 @@
-button = document.getElementById('getText');
+button = document.getElementById('getUsers');
+
 
 button.addEventListener('click', getText);
 button.addEventListener('click', getUsers);
