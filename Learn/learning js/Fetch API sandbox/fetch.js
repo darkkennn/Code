@@ -19,9 +19,12 @@ function getUsers() {
         data.forEach(function(user){
             output += `
                 <ul>
-                    <li> </li>
+                    <li>ID: ${user.id} </li>
+                    <li>Name: ${user.name} </li>
+                    <li>Email: ${user.email} </li>
                 </ul>
             `
-        })
+        });
+        document.getElementById('output').innerHTML = output;
     })
 }
