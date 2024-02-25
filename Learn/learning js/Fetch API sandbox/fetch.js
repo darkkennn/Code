@@ -1,11 +1,13 @@
 button = document.getElementById('getText')
 buttn = document.getElementById('getUsers');
 btn = document.getElementById('getPosts');
+myForm = document.getElementById('my-Form')
 
 
 button.addEventListener('click', getText);
 buttn.addEventListener('click', getUsers);
 btn.addEventListener('click', getPosts);
+myForm.addEventListener('submit', onSubmit);
 
 function getText() {
     fetch('sample.txt')
@@ -48,4 +50,22 @@ function getPosts(){
         });
         document.getElementById('output').innerHTML = output;
     })
+}
+
+function onSubmit(e){
+    e.preventDefault();
+
+    let title = document.getElementById('title').value;
+    let body = document.getElementById('body').value;
+
+    fetch('https://jsonplaceholder.typicode.com/posts' , {
+        method: 'POST',
+        headers:{
+            'Acept' : 'application/json, text/plain, */*',
+            'Content-Type' : 'application/json'
+        },
+        body:JSON.stringify({title: title, body: body})
+    })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
 }
