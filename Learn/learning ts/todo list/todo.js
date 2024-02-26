@@ -1,4 +1,9 @@
 var span = document.getElementById('span');
+const myForm = document.getElementById('my-form');
+const msg = document.querySelector('.msg');
+const date = document.getElementById('date');
+const task = document.getElementById('task');
+const list = document.getElementById('list');
 
 function time() {
   let d = new Date();
@@ -10,12 +15,6 @@ function time() {
 }
 
 setInterval(time, 1000);
-
-const myForm = document.getElementById('my-form');
-const msg = document.querySelector('.msg');
-const date = document.getElementById('date');
-const task = document.getElementById('task');
-const list = document.getElementById('list');
 
 myForm.addEventListener('submit', onSubmit)
 
