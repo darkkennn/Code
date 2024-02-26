@@ -15,7 +15,7 @@
     <section class="container">
       <form id="my-form">
         <h1>Add a task:</h1>
-        <div class="msg"></div>
+        <div class="msg" id = "msg"></div>
         <div>
           <label for="date">Enter the date:</label>
           <input type="text" id="date">
@@ -24,10 +24,13 @@
             <label for="task">Enter your task:</label>
             <input type="text" id="task">
         </div>
-        <input class="btn" type="submit" value="Submit">
+        <input class="btn" id="btn" type="submit" value="Submit">
+        <button class ="button" id="button">remove</button>
       </form>
 
-      <ul id="list"></ul>
+      <ul class="ul" id="list">
+
+      </ul>
 
     </section>
     

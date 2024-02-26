@@ -75,3 +75,8 @@
     padding: 5px;
     margin: 5px;
   }
+
+  .ul .btn{
+    position: inherit;
+
+  }
