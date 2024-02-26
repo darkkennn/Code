@@ -42,6 +42,9 @@ function onClick(e){
         function onPress(e){
         e.preventDefault();
 
+
+        // figure out a way to remove only one element
+        // inherit the button position to the new list element after
         li.removeChild(li.lastChild)
      }
 
