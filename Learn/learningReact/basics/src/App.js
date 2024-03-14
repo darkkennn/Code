@@ -1,8 +1,19 @@
+import logo from './logo.svg';
+import './App.css';
+
 function App() {
+  const name = 'Sachin';
+
   return (
-    <div classnName = 'container'>
-      <h1>Hello from React</h1>
-      <h2>Hello {x ? 'yes' : 'no'}</h2>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Hello {name}!
+        </p>
+      </header>
     </div>
-  )
+  );
 }
+
+export default App;
