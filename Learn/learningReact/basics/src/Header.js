@@ -1,7 +1,13 @@
-function header() {
+const header = () => {
+    const headerStyle = {
+        backgroundColor:'grey',
+        color: '#fff'
+    }
     return (
-        <div>List</div>
+        <header style = {headerStyle}>
+            <h1>Groceries List</h1>
+        </header>
     )
 }
 
-export default header
+export default header;
