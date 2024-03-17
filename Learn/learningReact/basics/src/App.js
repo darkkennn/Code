@@ -2,6 +2,7 @@ import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
 import { useState } from 'react';
+import AddItem from './AddItem';
 
 function App() {
   const[items, setItems] = useState([
@@ -37,6 +38,7 @@ function App() {
   return (
     <div className="App">
       <Header title = 'Groceries'/>
+      <AddItem />
       <Content 
         items = {items}
         handleCheck = {handleCheck}
