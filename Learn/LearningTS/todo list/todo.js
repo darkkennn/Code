@@ -6,6 +6,7 @@ const task = document.getElementById('task');
 const list = document.getElementById('list');
 const btn = document.getElementById('btn');
 const button = document.getElementById('button');
+const check = document.getElementById('check');
 
 function time() {
   let d = new Date();
@@ -34,19 +35,6 @@ function onClick(e){
         li.appendChild(document.createTextNode(`${task.value} : ${date.value}`));
 
         list.appendChild(li);
-
-        button.addEventListener('click', onPress);
-        
-        ul = document.getElementById('ul');
-
-        function onPress(e){
-        e.preventDefault();
-
-
-        // figure out a way to remove only one element
-        // inherit the button position to the new list element after
-        li.removeChild(li.lastChild)
-     }
 
         //resetting the values
         date.value = '';
