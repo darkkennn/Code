@@ -26,6 +26,12 @@ const Content = () => {
         localStorage.setItem('shoppingList', JSON.stringify(listItems));
     }
 
+    const handleDelete = (id) => {
+        const listItems = items.filter((item) => item.id !== id);
+        setItems(listItems);
+        localStorage.setItem('shoppingList', JSON.stringify(listItems))
+    }
+
     return (
         <main>
             <ul>
@@ -36,10 +42,14 @@ const Content = () => {
                         onChange={() => handleCheck(item.id)}
                         checked = {item.checked}
                         />
-                        <label
+                        <label 
+                            style={(item.checked) ? { textDecoration: 'line-through' } : null}
                             onDoubleClick={() => handleCheck(item.id)}
                         >{item.items}</label>
-                        <FaTrashAlt role = "button" tabIndex = "0" />
+                        <FaTrashAlt 
+                        onClick={() => handleDelete(item.id)}
+                        role = "button"
+                        tabIndex = "0" />
                     </li>
                 ))}
             </ul>
