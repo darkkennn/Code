@@ -23,22 +23,45 @@ function App() {
     }
   ]);
 
+  const [newItem, setNewItem] = useState('')
+
+  const setAndSave = (newItems) => {
+    setItems(newItems);
+      localStorage.setItem('shoppingList', JSON.stringify(newItems));
+  } 
+
+  const addItem = (item) => {
+    const id = items.length ? items[items.length - 1].id + 1 : 1;
+    const myNewItem = {id, checked: false, item}
+    const listItems = [...items, myNewItem]
+    setAndSave(listItems)
+  }
+
   const handleCheck = (id) => {
-      const listItems = items.map((items) => items.id === id ? { ...items, checked: !items.checked} : items);
-      setItems(listItems);
-      localStorage.setItem('shoppingList', JSON.stringify(listItems));
+    const listItems = items.map((items) => items.id === id ? { ...items, checked: !items.checked} : items);
+    setAndSave(listItems)
   }
 
   const handleDelete = (id) => {
-      const listItems = items.filter((item) => item.id !== id);
-      setItems(listItems);
-      localStorage.setItem('shoppingList', JSON.stringify(listItems))
+    const listItems = items.filter((item) => item.id !== id);
+    setAndSave(listItems)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(!newItem) return;
+    addItem(newItem)
+    setNewItem('')
   }
   
   return (
     <div className="App">
       <Header title = 'Groceries'/>
-      <AddItem />
+      <AddItem 
+        newItem = {newItem}
+        setNewItem = {setNewItem}
+        handleSubmit = {handleSubmit}
+      />
       <Content 
         items = {items}
         handleCheck = {handleCheck}
