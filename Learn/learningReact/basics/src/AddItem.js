@@ -16,10 +16,9 @@ const AddItem = ({ newItem, setNewItem, handleSubmit }) => {
         <button 
             type = 'submit'
             aria-label='Add Item'
+            onSubmit = {(e) => handleSubmit(e)}
         >   
-        <FaPlus 
-
-        />
+        <FaPlus/>
         </button>
     </form>
   )
