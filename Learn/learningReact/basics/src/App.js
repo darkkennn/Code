@@ -5,23 +5,7 @@ import { useState } from 'react';
 import AddItem from './AddItem';
 
 function App() {
-  const[items, setItems] = useState([
-    {
-        id: 1,
-        checked: false,
-        items: "Cocoa powder"
-    },
-    {
-        id:2,
-        checked:false,
-        items:"Bag of beans"
-    },
-    {
-        id:3,
-        checked:true,
-        items:"Protein powder"
-    }
-  ]);
+  const[items, setItems] = useState(JSON.parse(localStorage.getItem('shoppingList')));
 
   const setAndSave = (newItems) => {
     setItems(newItems);
