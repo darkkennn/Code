@@ -1,4 +1,5 @@
 import Header from './Header';
+import SearchItem from './SearchItem';
 import Content from './Content';
 import Footer from './Footer';
 import { useState } from 'react';
@@ -13,6 +14,7 @@ function App() {
   } 
 
   const [newItem, setNewItem] = useState('')
+  const [search, setSearch] = useState('')
 
   const addItem = (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
@@ -42,6 +44,10 @@ function App() {
   return (
     <div className="App">
       <Header title = 'Groceries'/>
+      <SearchItem 
+        search = {search}
+        setSearch = {setSearch}
+        />
       <AddItem 
         newItem = {newItem}
         setNewItem = {setNewItem}
