@@ -44,23 +44,21 @@ function App() {
   return (
     <div className="App">
       <Header title = 'Groceries'/>
-      <SearchItem 
-        search = {search}
-        setSearch = {setSearch}
-        />
       <AddItem 
         newItem = {newItem}
         setNewItem = {setNewItem}
         handleSubmit = {handleSubmit}
       />
-      <Content 
-        items = {items}
+      <SearchItem 
+        search = {search}
+        setSearch = {setSearch}
+      />
+      <Content
+        items = {items.filter((items) => (items.items).toLowerCase().includes(search.toLowerCase()))}
         handleCheck = {handleCheck}
         handleDelete = {handleDelete}
       />
-      <Footer 
-        length = {items.length} 
-      />
+      <Footer length = {items.length} />
     </div>
   );
 }
