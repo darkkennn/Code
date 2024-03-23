@@ -6,25 +6,20 @@ import { useState, useEffect } from 'react';
 import AddItem from './AddItem';
 
 function App() {
-  const[items, setItems] = useState([]);
-
-  const setAndSave = (newItems) => {
-    setItems(newItems);
-      localStorage.setItem('shoppingList', JSON.stringify(newItems));
-  } 
+  const[items, setItems] = useState(JSON.parse(localStorage.getItem('shoppingList')) || []);
 
   const [newItem, setNewItem] = useState('')
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    setItems(JSON.parse(localStorage.getItem('shoppingList')))
+    localStorage.setItem('shoppingList', JSON.stringify(newItem));
   }, [items])
 
   const addItem = (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
     const myNewItem = {id, checked: false, items: item}
     const listItems = [...items, myNewItem]
-    setAndSave(listItems)
+    setItems(listItems)
   }
 
   const handleSubmit = (e) => {
@@ -37,12 +32,12 @@ function App() {
 
   const handleCheck = (id) => {
     const listItems = items.map((items) => items.id === id ? { ...items, checked: !items.checked} : items);
-    setAndSave(listItems)
+    setItems(listItems)
   }
 
   const handleDelete = (id) => {
     const listItems = items.filter((item) => item.id !== id);
-    setAndSave(listItems)
+    setItems(listItems)
   }
   
   return (
