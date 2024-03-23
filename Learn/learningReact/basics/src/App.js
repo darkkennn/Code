@@ -2,11 +2,11 @@ import Header from './Header';
 import SearchItem from './SearchItem';
 import Content from './Content';
 import Footer from './Footer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AddItem from './AddItem';
 
 function App() {
-  const[items, setItems] = useState(JSON.parse(localStorage.getItem('shoppingList')));
+  const[items, setItems] = useState([]);
 
   const setAndSave = (newItems) => {
     setItems(newItems);
@@ -15,6 +15,10 @@ function App() {
 
   const [newItem, setNewItem] = useState('')
   const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    setItems(JSON.parse(localStorage.getItem('shoppingList')))
+  }, [items])
 
   const addItem = (item) => {
     const id = items.length ? items[items.length - 1].id + 1 : 1;
