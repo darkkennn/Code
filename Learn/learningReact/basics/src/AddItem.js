@@ -1,5 +1,5 @@
-import { FaPlus } from "react-icons/fa";
-import { useRef } from "react";
+import { FaAcquisitionsIncorporated, FaPlus } from "react-icons/fa";
+import { useRef, useReducer } from "react";
 
 const AddItem = ({ newItem, setNewItem, handleSubmit }) => {
   
@@ -30,4 +30,4 @@ const AddItem = ({ newItem, setNewItem, handleSubmit }) => {
   )
 }
 
-export default AddItem
+export default AddItem;
